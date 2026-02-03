@@ -1,25 +1,22 @@
 package com.fc;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.Instant;
 
-enum NotificationType {
-    LIKE,
-    COMMENT,
-    FOLLOW,
-}
-
-public class Notification {
-    public String id;
-    public Long userId;
-    public NotificationType type;
-    public Instant createAt;
-    public Instant deleteAt;
-
-    public Notification(String id, Long userId, NotificationType type, Instant createAt, Instant deleteAt) {
-        this.id = id;
-        this.userId = userId;
-        this.type = type;
-        this.createAt = createAt;
-        this.deleteAt = deleteAt;
-    }
+@ToString
+@Getter
+@AllArgsConstructor
+@Document("notifications")
+public abstract class Notification {
+    private String id;
+    private Long userId;
+    private NotificationType type;
+    private Instant occurredAt;
+    private Instant createAt;
+    private Instant lastUpdatedAt;
+    private Instant deleteAt;
 }

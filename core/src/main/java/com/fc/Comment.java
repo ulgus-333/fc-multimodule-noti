@@ -1,0 +1,15 @@
+package com.fc;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import java.time.Instant;
+
+@Getter
+@AllArgsConstructor
+public class Comment {
+    private Long id;
+    private Long userId;
+    private String contents;
+    private Instant createAt;
+}

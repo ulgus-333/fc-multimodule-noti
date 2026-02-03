@@ -4,4 +4,8 @@ dependencies {
 
     // kafka
     implementation("org.springframework.cloud:spring-cloud-starter-stream-kafka")
+
+    // springdoc
+    implementation("org.springdoc:springdoc-openapi-starter-common:2.2.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 }

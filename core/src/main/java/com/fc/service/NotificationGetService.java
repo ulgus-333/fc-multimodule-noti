@@ -1,5 +1,8 @@
-package com.fc;
+package com.fc.service;
 
+import com.fc.domain.Notification;
+import com.fc.repository.NotificationRepository;
+import com.fc.domain.NotificationType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

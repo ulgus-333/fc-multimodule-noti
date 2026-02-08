@@ -1,5 +1,7 @@
-package com.fc.event;
+package com.fc.consumer;
 
+import com.fc.event.LikeEvent;
+import com.fc.event.LikeEventType;
 import com.fc.task.LikeAddTask;
 import com.fc.task.LikeRemoveTask;
 import lombok.extern.slf4j.Slf4j;

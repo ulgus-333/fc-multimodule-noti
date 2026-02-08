@@ -1,4 +1,4 @@
-package com.fc;
+package com.fc.utils;
 
 import lombok.experimental.UtilityClass;
 import org.bson.types.ObjectId;

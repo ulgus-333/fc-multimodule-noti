@@ -1,7 +1,6 @@
-package com.fc;
+package com.fc.domain;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.TypeAlias;
 
 import java.time.Instant;

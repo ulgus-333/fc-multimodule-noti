@@ -1,7 +1,11 @@
 package com.fc.task;
 
-import com.fc.*;
+import com.fc.client.CommentClient;
+import com.fc.client.PostClient;
+import com.fc.domain.*;
 import com.fc.event.CommentEvent;
+import com.fc.service.NotificationSaveService;
+import com.fc.utils.NotificationIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

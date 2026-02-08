@@ -1,4 +1,4 @@
-package com.fc;
+package com.fc.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

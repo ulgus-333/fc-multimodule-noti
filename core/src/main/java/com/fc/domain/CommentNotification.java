@@ -1,4 +1,4 @@
-package com.fc;
+package com.fc.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.TypeAlias;

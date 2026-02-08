@@ -15,4 +15,9 @@ public class NotificationSaveService {
         Notification result = notificationRepository.save(notification);
         log.info("inserted: {}", result);
     }
+
+    public void upsert(Notification notification) {
+        Notification result = notificationRepository.save(notification);
+        log.info("upsert: {}", result);
+    }
 }

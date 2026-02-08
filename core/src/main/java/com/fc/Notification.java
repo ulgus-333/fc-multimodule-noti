@@ -1,13 +1,12 @@
 package com.fc;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
 
 @ToString
+@Setter(value = AccessLevel.PROTECTED)
 @Getter
 @AllArgsConstructor
 @Document("notifications")

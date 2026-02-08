@@ -1,6 +1,7 @@
 package com.fc.api;
 
 import com.fc.event.CommentEvent;
+import com.fc.event.FollowEvent;
 import com.fc.event.LikeEvent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -54,6 +55,29 @@ public interface EventConsumerTestControllerSpec {
                 "type": "ADD",
                 "postId": 1,
                 "userId": 2,
+                "createAt": "2026-02-08T15:00:00.000Z"
+            }
+            """;
+
+    @Operation(
+            requestBody = @RequestBody(
+                    content = {
+                            @Content(
+                                    mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    examples = {
+                                            @ExampleObject(name = "팔로우 이벤트", value = FOLLOW_EVENT_PAYLOAD)
+                                    }
+                            )
+                    }
+            )
+    )
+    void follow(FollowEvent event);
+
+    String FOLLOW_EVENT_PAYLOAD = """
+            {
+                "type": "ADD",
+                "userId": 1,
+                "targetUserId": 2,
                 "createAt": "2026-02-08T15:00:00.000Z"
             }
             """;

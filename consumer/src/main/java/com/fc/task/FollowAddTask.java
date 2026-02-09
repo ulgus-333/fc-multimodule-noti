@@ -1,9 +1,9 @@
 package com.fc.task;
 
-import com.fc.FollowNotification;
-import com.fc.NotificationIdGenerator;
-import com.fc.NotificationSaveService;
-import com.fc.NotificationType;
+import com.fc.domain.FollowNotification;
+import com.fc.utils.NotificationIdGenerator;
+import com.fc.service.NotificationSaveService;
+import com.fc.domain.NotificationType;
 import com.fc.event.FollowEvent;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;

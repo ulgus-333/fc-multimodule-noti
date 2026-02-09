@@ -1,0 +1,33 @@
+package com.fc.response;
+
+import com.fc.domain.NotificationType;
+import com.fc.service.dto.ConvertedFollowNotification;
+import lombok.Getter;
+
+import java.time.Instant;
+
+@Getter
+public class FollowUserNotificationResponse extends UserNotificationResponse {
+
+    private final String username;
+    private final String userProfileImageUrl;
+    private final boolean isFollowing;
+
+    public FollowUserNotificationResponse(String id, NotificationType type, Instant occurredAt, String username, String userProfileImageUrl, boolean isFollowing) {
+        super(id, type, occurredAt);
+        this.username = username;
+        this.userProfileImageUrl = userProfileImageUrl;
+        this.isFollowing = isFollowing;
+    }
+
+    public static FollowUserNotificationResponse of(ConvertedFollowNotification notification) {
+        return new FollowUserNotificationResponse(
+                notification.getId(),
+                notification.getType(),
+                notification.getOccurredAt(),
+                notification.getUserName(),
+                notification.getUserProfileImageUrl(),
+                notification.isFollowing()
+        );
+    }
+}

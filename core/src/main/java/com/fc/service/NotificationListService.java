@@ -2,6 +2,7 @@ package com.fc.service;
 
 import com.fc.domain.Notification;
 import com.fc.repository.NotificationRepository;
+import com.fc.service.dto.GetUserNotificationByPivotResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
@@ -15,11 +16,14 @@ public class NotificationListService {
     private static final int PAGE_SIZE = 20;
     private final NotificationRepository notificationRepository;
 
-    public Slice<Notification> getUserNotificationsByPivot(Long userId, Instant occurredAt) {
+    public GetUserNotificationByPivotResult getUserNotificationsByPivot(Long userId, Instant occurredAt) {
+        Slice<Notification> result;
         if (occurredAt == null) {
-            return notificationRepository.findAllByUserIdOrderByOccurredAtDesc(userId, PageRequest.of(0, PAGE_SIZE));
+            result = notificationRepository.findAllByUserIdOrderByOccurredAtDesc(userId, PageRequest.of(0, PAGE_SIZE));
         } else {
-            return notificationRepository.findAllByUserIdAndOccurredAtLessThanOrderByOccurredAtDesc(userId, occurredAt, PageRequest.of(0, PAGE_SIZE));
+            result = notificationRepository.findAllByUserIdAndOccurredAtLessThanOrderByOccurredAtDesc(userId, occurredAt, PageRequest.of(0, PAGE_SIZE));
         }
+
+        return new GetUserNotificationByPivotResult(result.toList(), result.hasNext());
     }
 }

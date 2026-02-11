@@ -6,6 +6,7 @@ import com.fc.domain.NotificationType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.Optional;
 
 @Component
@@ -24,5 +25,12 @@ public class NotificationGetService {
 
     public Optional<Notification> getNotificationByTypeAndUserIdAndFollowerId(NotificationType type, Long userId, Long followerId) {
         return notificationRepository.findByTypeAndUserIdAndFollowerId(type, userId, followerId);
+    }
+
+    public Instant getLatestUpdatedAt(long userId) {
+        Optional<Notification> notification = notificationRepository.findFirstByUserIdOrderByLastUpdatedAtDesc(userId);
+        return notification
+                .map(Notification::getLastUpdatedAt)
+                .orElse(null);
     }
 }
